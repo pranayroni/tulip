@@ -98,3 +98,22 @@ body {
   }
 }
 
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .tulip-container {
+    width: 40px; /* Adjust width for smaller screens */
+    height: 160px; /* Adjust height for smaller screens */
+  }
+
+  .flower {
+    bottom: 150px; /* Adjust position for smaller screens */
+    left: -12px; /* Adjust position for smaller screens */
+    width: 30px; /* Adjust size for smaller screens */
+    height: 30px; /* Adjust size for smaller screens */
+  }
+
+  .message {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+  }
+}
+
