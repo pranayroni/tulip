@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200vh;
+  background-color: #f0f0f0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.tulip-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 200px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stem {
+  width: 5px;
+  height: 0;
+  background-color: #6b8e23;
+  position: absolute;
+  bottom: 0;
+  transition: height 0.3s ease-out;
+}
+
+.flower {
+  position: absolute;
+  bottom: 150px;
+  left: -12px;
+  width: 30px;
+  height: 30px;
+  transform: scale(0);
+  transition: transform 0.3s ease-out;
+}
+
+.petal {
+  position: absolute;
+  width: 15px;
+  height: 30px;
+  background-color: #ffffff;
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom center;
+}
+
+.petal-left {
+  transform: rotate(-20deg);
+  left: 0;
+}
+
+.petal-right {
+  transform: rotate(20deg);
+  right: 0;
+}
+
+.petal-center {
+  left: 7.5px;
+}
+
+.message {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  color: #333;
+  opacity: 0;
+  margin-top: 20px;
+  text-align: center;
+  transition: opacity 0.5s ease-out;
+}
