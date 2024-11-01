@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Calculate opacity based on scroll position
     const opacity = Math.min((scrollPosition - windowHeight / 2) / 300, 1);
 
+    // Calculate background color transition
+    const colorTransition = Math.min(scrollPosition / (document.body.scrollHeight - windowHeight), 1);
+    const r = Math.round(255 - (255 - 160) * colorTransition);
+    const g = Math.round(255 - (255 - 175) * colorTransition);
+    const b = Math.round(255 - (255 - 191) * colorTransition);
+    const backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    document.body.style.backgroundColor = backgroundColor;
+
     // Reveal tulip when scrolled halfway
     if (scrollPosition > windowHeight / 2) {
       tulipContainer.style.opacity = opacity;
@@ -36,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Fade out the scroll indicator
       scrollIndicator.style.opacity = 1 - opacity;
+
+      // Create new tulips after the main tulip and message are fully visible
+      if (stemHeight >= 160 && scrollPosition % 100 === 0) {
+        createTulip();
+      }
     } else {
       tulipContainer.style.opacity = '0';
       message.style.opacity = '0';
