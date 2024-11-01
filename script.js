@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const stem = document.querySelector('.stem');
   const flower = document.querySelector('.flower');
   const message = document.querySelector('.message');
+  const scrollIndicator = document.querySelector('.scroll-indicator');
 
   function handleScroll() {
     const scrollPosition = window.scrollY;
@@ -32,9 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         message.style.opacity = '0';
       }
+
+      // Fade out the scroll indicator
+      scrollIndicator.style.opacity = 1 - opacity;
     } else {
       tulipContainer.style.opacity = '0';
       message.style.opacity = '0';
+      scrollIndicator.style.opacity = '1'; // Keep the arrow visible initially
     }
   }
 
