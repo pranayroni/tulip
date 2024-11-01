@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const flower = document.querySelector('.flower');
   const message = document.querySelector('.message');
   const scrollIndicator = document.querySelector('.scroll-indicator');
+  const vase = document.querySelector('.vase');
 
   function handleScroll() {
     const scrollPosition = window.scrollY;
@@ -23,6 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reveal tulip when scrolled halfway
     if (scrollPosition > windowHeight / 2) {
       tulipContainer.style.opacity = opacity;
+
+      // Animate the vase
+      vase.style.opacity = opacity;
+      vase.style.transform = 'translateX(-50%) scale(1)';
 
       // Calculate stem height and flower scale based on scroll position
       const stemHeight = Math.min(160, (scrollPosition - windowHeight / 2) * 0.5);
@@ -44,13 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Fade out the scroll indicator
       scrollIndicator.style.opacity = 1 - opacity;
-
-      // Create new tulips after the main tulip and message are fully visible
-      if (stemHeight >= 160 && scrollPosition % 100 === 0) {
-        createTulip();
-      }
     } else {
       tulipContainer.style.opacity = '0';
+      vase.style.opacity = '0';
+      vase.style.transform = 'translateX(-50%) scale(0)';
       message.style.opacity = '0';
       scrollIndicator.style.opacity = '1'; // Keep the arrow visible initially
     }
